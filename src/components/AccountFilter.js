@@ -22,7 +22,6 @@ export default function AccountFilter({ filter, dataDispatch }) {
 
   const optionChange = (value, name) => {
     const selectedFilter = {};
-    console.log(value);
     selectedFilter[name] = value ? value : "";
 
     dataDispatch({
@@ -30,6 +29,10 @@ export default function AccountFilter({ filter, dataDispatch }) {
       selectedFilter,
     });
   };
+
+  useEffect(() => {
+    console.log(filter);
+  }, [filter]);
 
   const parseDate = (date) => {
     return date.filter((date) => !!date).map((date) => new Date(date));
@@ -42,7 +45,7 @@ export default function AccountFilter({ filter, dataDispatch }) {
       return;
     }
     // Nếu là số dương, gọi hàm optionChange để cập nhật giá trị
-    optionChange(value, "minBalance");
+    optionChange(parseInt(value), "minBalance");
   };
 
   const [startDate1, setStartDate1] = useState(new Date());
@@ -69,11 +72,11 @@ export default function AccountFilter({ filter, dataDispatch }) {
             placeholder="Tất cả"
             className="React"
             name="kycLevel"
-            onChange={(selection, action) =>
-              optionChange(selection?.value, "kycLevel")
-            }
+            onChange={(selection, action) => {
+              optionChange(selection?.value, "kycLevel");
+            }}
             options={kycOption}
-            value={kycOption.find((term) => (term.value = filter?.kycLevel))}
+            value={kycOption.find((term) => term.value === filter?.kycLevel)}
           />
         </FormGroup>
       </Col>
@@ -90,7 +93,7 @@ export default function AccountFilter({ filter, dataDispatch }) {
             }
             options={termDaysOption}
             value={termDaysOption.find(
-              (term) => (term.value = filter?.termDays)
+              (term) => term.value === filter?.termDays
             )}
           />
         </FormGroup>
@@ -123,6 +126,8 @@ export default function AccountFilter({ filter, dataDispatch }) {
                   if (startDate2 && date >= startDate2) return;
                   setStartDate1(date);
                   setDatePickerVisibility1(false);
+
+                  optionChange(date, "dueDateStart");
                 }}
                 dateFormat="dd-MM-yyyy"
                 inline
@@ -148,6 +153,8 @@ export default function AccountFilter({ filter, dataDispatch }) {
                   if (date <= startDate1) return;
                   setStartDate2(date);
                   setDatePickerVisibility2(false);
+
+                  optionChange(date, "dueDateEnd");
                 }}
                 dateFormat="dd-MM-yyyy"
                 inline

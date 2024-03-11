@@ -8,7 +8,7 @@ export default function AccountPage() {
 
   return (
     <>
-      <AccountFilter dataState={dataState} dataDispatch={dataDispatch} />
+      <AccountFilter filter={dataState.filter} dataDispatch={dataDispatch} />
     </>
   );
 }
