@@ -22,7 +22,7 @@ export default function AccountFilter({ filter, dataDispatch }) {
 
   const optionChange = (value, name) => {
     const selectedFilter = {};
-    selectedFilter[name] = value ? value : "";
+    selectedFilter[name] = value || value === 0 ? value : "";
 
     dataDispatch({
       type: "changeFilter",
@@ -41,11 +41,16 @@ export default function AccountFilter({ filter, dataDispatch }) {
   const handleBalanceValidate = (e) => {
     const value = e.target.value;
     // Kiểm tra nếu giá trị không phải là số dương thì không cho phép cập nhật state
-    if (isNaN(value) || value < 0) {
-      return;
+    if (isNaN(value)) {
+      optionChange(0, "minBalance");
     }
     // Nếu là số dương, gọi hàm optionChange để cập nhật giá trị
-    optionChange(parseInt(value), "minBalance");
+    let b = parseInt(value);
+    if (b > 0) {
+      optionChange(b, "minBalance");
+    } else {
+      optionChange(0, "minBalance");
+    }
   };
 
   const [startDate1, setStartDate1] = useState(new Date());
@@ -103,9 +108,8 @@ export default function AccountFilter({ filter, dataDispatch }) {
         <div>Số dư tối thiểu</div>
         <FormGroup>
           <Input
-            placeholder="Tất cả"
             className="React"
-            onChange={handleBalanceValidate}
+            onChange={(e) => handleBalanceValidate(e)}
             value={filter?.minBalance}
           />
         </FormGroup>
