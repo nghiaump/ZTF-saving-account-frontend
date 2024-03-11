@@ -1,5 +1,5 @@
 export const dataInitState = {
-  entries: [],
+  data: [],
   paging: {
     size: 5,
     page: 1,
@@ -29,7 +29,7 @@ export function dataReducer(state, action) {
 
     case "dataLoaded": {
       const {
-        entries,
+        data,
         page,
         size,
         total_pages: totalPages,
@@ -38,7 +38,7 @@ export function dataReducer(state, action) {
 
       return {
         ...state,
-        data: entries,
+        data,
         paging: {
           page,
           size,
