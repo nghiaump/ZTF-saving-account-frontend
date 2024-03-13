@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Row, Col, Container, FormGroup, Input, Button } from "reactstrap";
+import { Row, Container, Input, Button } from "reactstrap";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -121,7 +121,11 @@ export default function AccountFilter({
           <div>Ngày tất toán (bắt đầu)</div>
 
           <div onClick={toggleDatePicker1} className="filter-item form-control">
-            {startDate1.toDateString()}
+            {startDate1.toLocaleDateString("vi-VN", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
           </div>
           {isDatePickerVisible1 && (
             <div ref={refDatePicker1} className="position-absolute">
@@ -147,7 +151,11 @@ export default function AccountFilter({
           <div>Ngày tất toán (kết thúc)</div>
 
           <div onClick={toggleDatePicker2} className="filter-item form-control">
-            {startDate2.toDateString()}
+            {startDate2.toLocaleDateString("vi-VN", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
           </div>
           {isDatePickerVisible2 && (
             <div ref={refDatePicker2} className="position-absolute">
@@ -158,7 +166,6 @@ export default function AccountFilter({
                   if (date <= startDate1) return;
                   setStartDate2(date);
                   setDatePickerVisibility2(false);
-
                   optionChange(date, "dueDateEnd");
                 }}
                 dateFormat="dd-MM-yyyy"

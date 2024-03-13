@@ -8,15 +8,21 @@ function CustomNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">SAVING ACCOUNT SYSTEM</Navbar.Brand>
+        <Navbar.Brand href="/">SAVING ACCOUNT SYSTEM</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/account-list">User Tool</Nav.Link>
-            <Nav.Link href="/account-list">Saving Account Tool</Nav.Link>
 
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <Nav.Link href="/user-tool">Quản lý user</Nav.Link>
+
+            <Nav.Link href="/account-list">
+              Quản lý tài khoản tiết kiệm
+            </Nav.Link>
+
+            <Nav.Link href="/withdrawal">Rút tiền</Nav.Link>
+
+            <NavDropdown title="Công cụ khác" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
