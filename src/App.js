@@ -9,6 +9,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import AccountPage from "./pages/AccountPage";
+import AccountRegistrationPage from "./pages/AccountRegistrationPage";
 import UserPage from "./pages/UserPage";
 import WithdrawalPage from "./pages/WithdrawalPage";
 import React from "react";
@@ -23,6 +24,10 @@ function App() {
           <Route
             path="/user-tool"
             element={<MainLayout body={<UserPage />} />}
+          />
+          <Route
+            path="/account-register"
+            element={<MainLayout body={<AccountRegistrationPage />} />}
           />
           <Route
             path="/account-list"

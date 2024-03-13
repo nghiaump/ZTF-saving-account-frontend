@@ -114,7 +114,6 @@ export default function AccountFilter({
 
         <div className="mx-2">
           <div>Ngày tất toán (bắt đầu)</div>
-
           <div onClick={toggleDatePicker1} className="filter-item form-control">
             {startDate1.toLocaleDateString("vi-VN", {
               day: "2-digit",

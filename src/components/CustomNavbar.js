@@ -31,6 +31,9 @@ function CustomNavbar() {
             </NavDropdown>
 
             <NavDropdown title="Tài khoản tiết kiệm" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/account-register">
+                Mở tài khoản mới
+              </NavDropdown.Item>
               <NavDropdown.Item href="/account-inquiry">
                 Vấn tin số dư
               </NavDropdown.Item>
