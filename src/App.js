@@ -11,6 +11,7 @@ import {
 import AccountPage from "./pages/AccountPage";
 import AccountRegistrationPage from "./pages/AccountRegistrationPage";
 import UserPage from "./pages/UserPage";
+import UserRegistrationPage from "./pages/UserRegistrationPage";
 import WithdrawalPage from "./pages/WithdrawalPage";
 import React from "react";
 import MainLayout from "./layouts/MainLayout";
@@ -21,6 +22,10 @@ function App() {
       <Routes>
         <React.Fragment>
           <Route path="/" exact element={<MainLayout body={<></>} />} />
+          <Route
+            path="/new-user"
+            element={<MainLayout body={<UserRegistrationPage />} />}
+          />
           <Route
             path="/user-tool"
             element={<MainLayout body={<UserPage />} />}
