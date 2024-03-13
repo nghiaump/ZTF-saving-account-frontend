@@ -32,6 +32,7 @@ export default function AccountTable({ dataState }) {
             <th>ID người dùng</th>
             <th>KYC</th>
             <th>Số dư</th>
+            <th>Kỳ hạn (ngày)</th>
             <th>Lãi suất</th>
             <th>Ngày mở tài khoản</th>
             <th>Ngày tất toán</th>
@@ -46,6 +47,7 @@ export default function AccountTable({ dataState }) {
                   <td>{account.user_id}</td>
                   <td>{account.kyc}</td>
                   <td>{numberWithCommas(account.balance)}</td>
+                  <td>{account.term_in_days}</td>
                   <td>{account.rate}</td>
                   <td>{formatResponseDate(account.created_date)}</td>
                   <td>{formatResponseDate(account.due_date)}</td>
