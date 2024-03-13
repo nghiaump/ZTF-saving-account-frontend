@@ -5,13 +5,13 @@ export default function AccountTable({ dataState }) {
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">UserID</th>
-          <th scope="col">KYC</th>
-          <th scope="col">Balance</th>
-          <th scope="col">InterestRate</th>
-          <th scope="col">CreatedDate</th>
-          <th scope="col">DueDate</th>
+          <th scope="col">id</th>
+          <th scope="col">user_id</th>
+          <th scope="col">kyc</th>
+          <th scope="col">balance</th>
+          <th scope="col">rate</th>
+          <th scope="col">created_date</th>
+          <th scope="col">due_date</th>
         </tr>
       </thead>
       <tbody>

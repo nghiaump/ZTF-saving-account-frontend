@@ -1,5 +1,5 @@
 const AccountAPI = {
-  searchAccounts: async (payload) => {
+  searchAccounts: async (filter) => {
     const url = "/api/accounts/search";
 
     return await fetch(url, {
@@ -7,7 +7,7 @@ const AccountAPI = {
         "Content-Type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify(payload),
+      body: JSON.stringify(filter),
     });
   },
 };

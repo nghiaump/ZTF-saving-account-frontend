@@ -17,40 +17,25 @@ export default function AccountPage() {
   const handleSubmitFilter = () => {
     const payload = {
       paging: dataState.paging,
-      //filter: dataState.filter,
       filter: {
         ...dataState.filter,
-        // parse dates to format "ddmmyyyy"
-        dueDateStart: formatDate(dataState.filter.dueDateStart),
-        dueDateEnd: formatDate(dataState.filter.dueDateEnd),
+        due_date_earliest: formatDate(dataState.filter.due_date_earliest),
+        due_date_latest: formatDate(dataState.filter.due_date_latest),
       },
     };
     // debug
-    console.log(">>>payload: ", payload.filter);
-    AccountAPI.searchAccounts(payload)
-      .then((res) => {
+    console.log(">>>payload filter: ", payload.filter);
+    AccountAPI.searchAccounts(payload.filter)
+      .then((response) => response.json()) // Chuyển đổi response thành JSON
+      .then((data) => {
+        //console.log(">>>Data:", data); // In ra dữ liệu JSON
+        console.log(data);
         dataDispatch({
           type: "dataLoaded",
-          response: res,
+          response: data.acc_list,
         });
       })
       .catch((error) => console.log(error));
-    // dataDispatch({
-    //   type: "dataLoaded",
-    //   response: {
-    //     data: [
-    //       {
-    //         id: "abcd-1234",
-    //         user_id: "user-12345",
-    //         kyc: 3,
-    //         balance: 100000000,
-    //         rate: 0.045,
-    //         created_date: "01022024",
-    //         due_date: "01052024",
-    //       },
-    //     ],
-    //   },
-    // });
   };
 
   return (

@@ -34,26 +34,21 @@ export default function AccountFilter({
     });
   };
 
-  useEffect(() => {
-    console.log(filter);
-  }, [filter]);
-
-  const parseDate = (date) => {
-    return date.filter((date) => !!date).map((date) => new Date(date));
-  };
+  // useEffect(() => {
+  //   console.log(filter);
+  // }, [filter]);
 
   const handleBalanceValidate = (e) => {
     const value = e.target.value;
-    // Kiểm tra nếu giá trị không phải là số dương thì không cho phép cập nhật state
     if (isNaN(value)) {
-      optionChange(0, "minBalance");
+      optionChange(0, "min_balance");
     }
     // Nếu là số dương, gọi hàm optionChange để cập nhật giá trị
     let b = parseInt(value);
     if (b > 0) {
-      optionChange(b, "minBalance");
+      optionChange(b, "min_balance");
     } else {
-      optionChange(0, "minBalance");
+      optionChange(0, "min_balance");
     }
   };
 
@@ -83,10 +78,10 @@ export default function AccountFilter({
             className="filter-item"
             name="kycLevel"
             onChange={(selection, action) => {
-              optionChange(selection?.value, "kycLevel");
+              optionChange(selection?.value, "kyc");
             }}
             options={kycOption}
-            value={kycOption.find((term) => term.value === filter?.kycLevel)}
+            value={kycOption.find((term) => term.value === filter?.kyc)}
           />
         </div>
 
@@ -98,11 +93,11 @@ export default function AccountFilter({
             className="filter-item"
             name="termDays"
             onChange={(selection, action) =>
-              optionChange(selection?.value, "termDays")
+              optionChange(selection?.value, "term_in_days")
             }
             options={termDaysOption}
             value={termDaysOption.find(
-              (term) => term.value === filter?.termDays
+              (term) => term.value === filter?.term_in_days
             )}
           />
         </div>
@@ -113,7 +108,7 @@ export default function AccountFilter({
           <Input
             className="filter-item"
             onChange={(e) => handleBalanceValidate(e)}
-            value={filter?.minBalance}
+            value={filter?.min_balance}
           />
         </div>
 
@@ -137,7 +132,7 @@ export default function AccountFilter({
                   setStartDate1(date);
                   setDatePickerVisibility1(false);
 
-                  optionChange(date, "dueDateStart");
+                  optionChange(date, "due_date_earliest");
                 }}
                 dateFormat="dd-MM-yyyy"
                 inline
@@ -166,7 +161,7 @@ export default function AccountFilter({
                   if (date <= startDate1) return;
                   setStartDate2(date);
                   setDatePickerVisibility2(false);
-                  optionChange(date, "dueDateEnd");
+                  optionChange(date, "due_date_latest");
                 }}
                 dateFormat="dd-MM-yyyy"
                 inline
