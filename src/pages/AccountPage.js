@@ -6,6 +6,10 @@ import AccountAPI from "../api/AccountAPI";
 import AccountTable from "../components/AccountTable";
 
 function formatDate(date) {
+  if (date == null) {
+    // Xử lý khi giá trị là null hoặc undefined
+    return ""; // hoặc một giá trị mặc định khác
+  }
   let day = date.getDate().toString().padStart(2, "0");
   let month = (date.getMonth() + 1).toString().padStart(2, "0"); // Tháng trả về từ 0-11 nên cần +1
   let year = date.getFullYear().toString();
@@ -32,7 +36,7 @@ export default function AccountPage() {
         console.log(data);
         dataDispatch({
           type: "dataLoaded",
-          response: data.acc_list,
+          response: data,
         });
       })
       .catch((error) => console.log(error));

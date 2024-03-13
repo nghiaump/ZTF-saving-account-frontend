@@ -1,5 +1,10 @@
 export const dataInitState = {
-  data: [],
+  acc_list: [],
+  agg: {
+    total_balance: 0,
+    total_hits: 0,
+  },
+
   paging: {
     size: 19,
     page: 1,
@@ -18,7 +23,6 @@ export const dataInitState = {
 };
 
 export function dataReducer(state, action) {
-  console.log(">>action.type:", action.type);
   switch (action.type) {
     case "changeFilter": {
       return {
@@ -53,11 +57,15 @@ export function dataReducer(state, action) {
     // }
     case "dataLoaded": {
       console.log(">>action.response:", action.response);
-      const data = action.response;
+      const { acc_list, agg_total_balance, agg_total_hits } = action.response;
 
       return {
         ...state,
-        data,
+        acc_list,
+        agg: {
+          total_balance: agg_total_balance,
+          total_hits: agg_total_hits,
+        },
       };
     }
 

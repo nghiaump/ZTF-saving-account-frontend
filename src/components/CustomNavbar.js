@@ -14,13 +14,31 @@ function CustomNavbar() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
 
-            <Nav.Link href="/user-tool">Quản lý user</Nav.Link>
+            <NavDropdown title="User" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/new-user">
+                Đăng ký User mới
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/check-kyc">
+                Kiểm tra KYC
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/own-account-list">
+                Kiểm tra danh sách tài khoản
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
 
-            <Nav.Link href="/account-list">
-              Quản lý tài khoản tiết kiệm
-            </Nav.Link>
+            <NavDropdown title="Tài khoản tiết kiệm" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/account-inquiry">
+                Vấn tin số dư
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/withdrawal">Rút tiền</NavDropdown.Item>
+              <NavDropdown.Item href="/account-list">Thống kê</NavDropdown.Item>
+            </NavDropdown>
 
-            <Nav.Link href="/withdrawal">Rút tiền</Nav.Link>
+            {/* <Nav.Link href="/withdrawal">Rút tiền</Nav.Link> */}
 
             <NavDropdown title="Công cụ khác" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
