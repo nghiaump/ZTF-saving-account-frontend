@@ -1,12 +1,14 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
+import { Container, Row } from "reactstrap";
 import AccountFilter from "../components/AccountFilter";
 import { dataInitState, dataReducer } from "../reducers/reducerAccount";
 import "./css/AccountPage.css";
 import AccountAPI from "../api/AccountAPI";
 import AccountTable from "../components/AccountTable";
+import Paginator from "../components/Paginator";
 
 function formatDate(date) {
-  if (date == null) {
+  if (date == null || date == undefined || date == "") {
     // Xử lý khi giá trị là null hoặc undefined
     return ""; // hoặc một giá trị mặc định khác
   }
@@ -42,8 +44,22 @@ export default function AccountPage() {
       .catch((error) => console.log(error));
   };
 
+  useEffect(() => {
+    handleSubmitFilter();
+  }, [dataState.filter.page_index]);
+
+  const onPageChange = (number) => {
+    console.log(">>number: ", number);
+    dataDispatch({
+      type: "changeFilter",
+      selectedFilter: {
+        page_index: number,
+      },
+    });
+  };
+
   return (
-    <>
+    <Container fluid>
       <AccountFilter
         filter={dataState.filter}
         dataDispatch={dataDispatch}
@@ -51,6 +67,16 @@ export default function AccountPage() {
       />
 
       <AccountTable dataState={dataState} />
-    </>
+
+      <Row className="d-flex justify-content-center">
+        <Paginator
+          totalPages={Math.ceil(
+            dataState.agg.total_hits / dataState.filter.page_size
+          )}
+          currentPageIndex={dataState.filter.page_index}
+          onPageChange={onPageChange}
+        />
+      </Row>
+    </Container>
   );
 }

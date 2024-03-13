@@ -2,14 +2,7 @@ export const dataInitState = {
   acc_list: [],
   agg: {
     total_balance: 0,
-    total_hits: 0,
-  },
-
-  paging: {
-    size: 19,
-    page: 1,
-    totalPages: 1,
-    totalEntries: 0,
+    total_hits: 1,
   },
   filter: {
     kyc: 2,
@@ -17,7 +10,7 @@ export const dataInitState = {
     min_balance: 0,
     due_date_earliest: "",
     due_date_latest: "",
-    page_size: 20,
+    page_size: 10,
     page_index: 1,
   },
 };
