@@ -3,12 +3,16 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import "./CustomNavbar.css";
 
 function CustomNavbar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary nav-container">
       <Container>
-        <Navbar.Brand href="/">SAVING ACCOUNT SYSTEM</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <p className="app-name-zlp-color">SAVING</p>{" "}
+          <p className="app-name-zlp-color-green">SYSTEM</p>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

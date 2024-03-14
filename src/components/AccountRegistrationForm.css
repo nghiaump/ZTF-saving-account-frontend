@@ -1,7 +1,22 @@
-.filter-item {
-    width: 150px;
+.acc-reg-container {
+    width: 500px;
+    background-color: #F5F9FF;
+    padding: 30px 50px;
+    border-radius: 20px;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.acc-reg-field {
+    width: 100%;
+    margin: 5px 0 15px 0;
+}
+
 
 .position-absolute {
     position: absolute;
+}
+
+.btn-zlp-color {
+    background-color: #0068ff;
 }

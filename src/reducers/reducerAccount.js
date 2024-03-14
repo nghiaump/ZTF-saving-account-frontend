@@ -27,27 +27,6 @@ export function dataReducer(state, action) {
       };
     }
 
-    // case "dataLoaded": {
-    //   console.log(">>action.response:", action.response);
-    //   const {
-    //     data,
-    //     page,
-    //     size,
-    //     total_pages: totalPages,
-    //     total_entries: totalEntries,
-    //   } = action.response;
-
-    //   return {
-    //     ...state,
-    //     data,
-    //     paging: {
-    //       page,
-    //       size,
-    //       totalPages,
-    //       totalEntries,
-    //     },
-    //   };
-    // }
     case "dataLoaded": {
       console.log(">>action.response:", action.response);
       const { acc_list, agg_total_balance, agg_total_hits } = action.response;

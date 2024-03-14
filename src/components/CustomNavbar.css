@@ -1,0 +1,21 @@
+.app-name-zlp-color {
+    color: #0068FF;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.app-name-zlp-color-green {
+    color: #27ca77;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}

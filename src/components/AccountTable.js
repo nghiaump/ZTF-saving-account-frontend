@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import "./AccountTable.css";
 
 function numberWithCommas(x) {
   if (x === undefined || x === null) {
@@ -31,7 +32,7 @@ export default function AccountTable({ dataState }) {
       </Container>
       <table className="table table-striped">
         <thead>
-          <tr>
+          <tr className="table-header-zlp-color">
             <th>#</th>
             <th>ID tài khoản</th>
             <th>ID người dùng</th>

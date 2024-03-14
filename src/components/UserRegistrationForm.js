@@ -1,99 +1,60 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Container, Form, Col, Row, Input, Button } from "reactstrap";
 
-export default function UserRegistrationForm() {
+function UserRegistrationForm() {
   return (
-    <form>
-      <div className="form-row">
-        <div className="col-md-4 mb-3">
-          <label for="validationDefault01">First name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationDefault01"
-            placeholder="First name"
-            value="Mark"
-            required
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <label for="validationDefault02">Last name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationDefault02"
-            placeholder="Last name"
-            value="Otto"
-            required
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <label for="validationDefaultUsername">Username</label>
-          <div className="input-group">
-            <div className="input-group-prepend">
-              <span className="input-group-text" id="inputGroupPrepend2">
-                @
-              </span>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              id="validationDefaultUsername"
-              placeholder="Username"
-              aria-describedby="inputGroupPrepend2"
-              required
-            />
-          </div>
-        </div>
-      </div>
-      <div className="form-row">
-        <div className="col-md-6 mb-3">
-          <label for="validationDefault03">City</label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationDefault03"
-            placeholder="City"
-            required
-          />
-        </div>
-        <div className="col-md-3 mb-3">
-          <label for="validationDefault04">State</label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationDefault04"
-            placeholder="State"
-            required
-          />
-        </div>
-        <div className="col-md-3 mb-3">
-          <label for="validationDefault05">Zip</label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationDefault05"
-            placeholder="Zip"
-            required
-          />
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="invalidCheck2"
-            required
-          />
-          <label className="form-check-label" for="invalidCheck2">
-            Agree to terms and conditions
-          </label>
-        </div>
-      </div>
-      <button className="btn btn-primary" type="submit">
-        Submit form
-      </button>
-    </form>
+    <Container>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+      </Row>
+
+      <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Label>Address</Form.Label>
+        <Form.Control placeholder="1234 Main St" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Label>Address 2</Form.Label>
+        <Form.Control placeholder="Apartment, studio, or floor" />
+      </Form.Group>
+
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridCity">
+          <Form.Label>City</Form.Label>
+          <Form.Control />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridState">
+          <Form.Label>State</Form.Label>
+          <Form.Select defaultValue="Choose...">
+            <option>Choose...</option>
+            <option>...</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridZip">
+          <Form.Label>Zip</Form.Label>
+          <Form.Control />
+        </Form.Group>
+      </Row>
+
+      <Form.Group className="mb-3" id="formGridCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Container>
   );
 }
+
+export default UserRegistrationForm;
