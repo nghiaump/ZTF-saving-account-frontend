@@ -21,13 +21,18 @@ export default function AccountTable({ dataState }) {
     <>
       <Container>
         <Row>
-          Tổng số tài khoản: {numberWithCommas(dataState.agg?.total_hits)}{" "}
+          Tổng số tài khoản:{"\t"}
+          <strong>{numberWithCommas(dataState.agg?.total_hits)}</strong>
         </Row>
-        <Row>Tổng số dư: {numberWithCommas(dataState.agg.total_balance)}</Row>
+        <Row>
+          Tổng số dư:{"\t"}
+          <strong>{numberWithCommas(dataState.agg.total_balance)}</strong>
+        </Row>
       </Container>
       <table className="table table-striped">
         <thead>
           <tr>
+            <th>#</th>
             <th>ID tài khoản</th>
             <th>ID người dùng</th>
             <th>KYC</th>
@@ -39,10 +44,17 @@ export default function AccountTable({ dataState }) {
           </tr>
         </thead>
         <tbody>
-          {dataState.acc_list?.map((account) => {
+          {dataState.acc_list?.map((account, index) => {
+            const orderNumber =
+              (dataState.filter.page_index - 1) * dataState.filter.page_size +
+              index +
+              1;
             return (
               <>
                 <tr>
+                  <td>
+                    <strong>{orderNumber}</strong>
+                  </td>
                   <td>{account.id}</td>
                   <td>{account.user_id}</td>
                   <td>{account.kyc}</td>

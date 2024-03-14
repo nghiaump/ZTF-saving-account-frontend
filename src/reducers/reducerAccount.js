@@ -2,7 +2,7 @@ export const dataInitState = {
   acc_list: [],
   agg: {
     total_balance: 0,
-    total_hits: 1,
+    total_hits: 0,
   },
   filter: {
     kyc: 2,
