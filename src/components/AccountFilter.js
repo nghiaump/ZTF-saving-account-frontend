@@ -69,6 +69,9 @@ export default function AccountFilter({
 
   return (
     <Container fluid>
+      <Row className="justify-content-center mt-3 mb-3 label-account-filter">
+        Thống kê tài khoản tiết kiệm theo các thông tin tùy chọn
+      </Row>
       <Row className="justify-content-center align-items-end">
         <div className="mx-2">
           <div>KYC level</div>
@@ -170,7 +173,7 @@ export default function AccountFilter({
           )}
         </div>
 
-        <div className="mx-2 filter-item d-flex justify-content-center">
+        <div className="mt-3 mx-2 filter-item d-flex justify-content-center">
           <Button onClick={handleSubmitFilter}>Tìm kiếm</Button>
         </div>
       </Row>

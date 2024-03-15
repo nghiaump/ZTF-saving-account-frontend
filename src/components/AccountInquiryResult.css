@@ -1,0 +1,13 @@
+.acc-reg-zlp-color {
+    background-color: #F5F9FF;
+}
+
+.acc-inquiry-container {
+    border-radius: 20px;
+}
+
+.acc-inquiry-not-found {
+    justify-content: center;
+    font-weight: bold;
+    padding: 30px;
+}

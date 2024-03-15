@@ -1,3 +1,8 @@
 .acc-reg-zlp-color {
-    background-color: #E6E1DF;
+    border-radius: 20px;
+}
+
+.acc-reg-success-label {
+    color: #03CA77;
+    font-weight: 700;
 }

@@ -8,8 +8,10 @@ import {
   Routes,
   BrowserRouter,
 } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import AccountPage from "./pages/AccountPage";
 import AccountRegistrationPage from "./pages/AccountRegistrationPage";
+import AccountInquiryPage from "./pages/AccountInquiryPage";
 import UserPage from "./pages/UserPage";
 import UserRegistrationPage from "./pages/UserRegistrationPage";
 import WithdrawalPage from "./pages/WithdrawalPage";
@@ -21,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <React.Fragment>
-          <Route path="/" exact element={<MainLayout body={<></>} />} />
+          <Route path="/" exact element={<MainLayout body={<HomePage />} />} />
           <Route
             path="/new-user"
             element={<MainLayout body={<UserRegistrationPage />} />}
@@ -34,6 +36,12 @@ function App() {
             path="/account-register"
             element={<MainLayout body={<AccountRegistrationPage />} />}
           />
+
+          <Route
+            path="/account-inquiry"
+            element={<MainLayout body={<AccountInquiryPage />} />}
+          />
+
           <Route
             path="/account-list"
             element={<MainLayout body={<AccountPage />} />}

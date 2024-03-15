@@ -2,17 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Select from "react-select";
 import "./AccountRegistrationResult.css";
+import { numberWithCommas, formatResponseDate } from "./Helper";
 
 export default function AccountRegistrationResult({ data }) {
   return (
     <Container className="acc-reg-zlp-color">
+      <Row className="justify-content-center mt-3 mb-3 acc-reg-success-label">
+        Tạo mới tài khoản thành công
+      </Row>
       <Row>
-        <Col xs={6} md={4}>
-          ID tài khoản
-        </Col>
-        <Col xs={12} md={8}>
-          {data?.account_id}
-        </Col>
+        <Col>ID tài khoản</Col>
+        <Col>{data?.account_id}</Col>
       </Row>
 
       <Row>
@@ -27,12 +27,12 @@ export default function AccountRegistrationResult({ data }) {
 
       <Row>
         <Col>Ngày tạo tài khoản</Col>
-        <Col>{data?.created_date}</Col>
+        <Col>{formatResponseDate(data?.created_date)}</Col>
       </Row>
 
       <Row>
         <Col>Ngày tất toán</Col>
-        <Col>{data?.due_date}</Col>
+        <Col>{formatResponseDate(data?.due_date)}</Col>
       </Row>
 
       <Row>

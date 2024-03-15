@@ -1,4 +1,5 @@
 import Pagination from "react-bootstrap/Pagination";
+import "./Paginator.css";
 
 function Paginator({ totalPages, currentPageIndex, onPageChange }) {
   let items = [];

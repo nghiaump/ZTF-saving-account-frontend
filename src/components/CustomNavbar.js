@@ -45,8 +45,6 @@ function CustomNavbar() {
               <NavDropdown.Item href="/account-list">Thống kê</NavDropdown.Item>
             </NavDropdown>
 
-            {/* <Nav.Link href="/withdrawal">Rút tiền</Nav.Link> */}
-
             <NavDropdown title="Công cụ khác" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
