@@ -51,7 +51,7 @@ export default function AccountTable({ dataState }) {
               index +
               1;
             return (
-              <>
+              <React.Fragment key={orderNumber}>
                 <tr>
                   <td>
                     <strong>{orderNumber}</strong>
@@ -65,7 +65,7 @@ export default function AccountTable({ dataState }) {
                   <td>{formatResponseDate(account.created_date)}</td>
                   <td>{formatResponseDate(account.due_date)}</td>
                 </tr>
-              </>
+              </React.Fragment>
             );
           })}
         </tbody>

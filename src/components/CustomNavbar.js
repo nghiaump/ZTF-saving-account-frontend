@@ -23,14 +23,10 @@ function CustomNavbar() {
                 Đăng ký User mới
               </NavDropdown.Item>
               <NavDropdown.Item href="/check-kyc">
-                Kiểm tra KYC
+                Kiểm tra KYC (*)
               </NavDropdown.Item>
               <NavDropdown.Item href="/own-account-list">
-                Kiểm tra danh sách tài khoản
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+                Kiểm tra danh sách tài khoản (*)
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -41,20 +37,18 @@ function CustomNavbar() {
               <NavDropdown.Item href="/account-inquiry">
                 Vấn tin số dư
               </NavDropdown.Item>
-              <NavDropdown.Item href="/withdrawal">Rút tiền</NavDropdown.Item>
+              <NavDropdown.Item href="/withdrawal">
+                Rút tiền (*)
+              </NavDropdown.Item>
               <NavDropdown.Item href="/account-list">Thống kê</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title="Công cụ khác" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Công cụ 1</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Công cụ 2</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Công cụ 3</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Giới thiệu</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

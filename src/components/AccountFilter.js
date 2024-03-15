@@ -13,9 +13,9 @@ export default function AccountFilter({
   const termDaysOption = [
     { value: -1, label: "Tất cả" },
     { value: 21, label: "21 ngày" },
-    { value: 30, label: "1 tháng (30 ngày)" },
     { value: 90, label: "3 tháng (90 ngày)" },
     { value: 180, label: "6 tháng (180 ngày)" },
+    { value: 360, label: "12 tháng (360 ngày)" },
   ];
 
   const kycOption = [

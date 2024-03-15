@@ -4,7 +4,9 @@ import { Container, Row, Col } from "reactstrap";
 export default function HomePage() {
   return (
     <Container>
-      <Row className="justify-content-center mt-5 mb-5">WELCOME</Row>
+      <Row className="justify-content-center mt-5 mb-5 font-weight-bold bg-light">
+        WELCOME
+      </Row>
       <Row>
         <h5>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur

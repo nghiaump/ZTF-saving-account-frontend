@@ -1,60 +1,92 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Container, Form, Col, Row, Input, Button } from "reactstrap";
+import { Container, Row, Col, Input, Button } from "reactstrap";
+import DatePickerSingle from "./DatePickerSingle";
+import "react-datepicker/dist/react-datepicker.css";
+import "./UserRegistrationForm.css";
 
-function UserRegistrationForm() {
+export default function UserRegistrationForm({
+  formData,
+  dataDispatch,
+  handleSubmit,
+}) {
+  useEffect(() => {
+    console.log(">>reg_info changed:", formData);
+  }, [formData]);
+
+  const optionChange = (value, name) => {
+    const payload = {
+      [name]: value !== null && value !== undefined ? value : "",
+    };
+    console.log(">>payload:", payload);
+
+    dataDispatch({
+      type: "changeState",
+      payload,
+    });
+  };
+
   return (
-    <Container>
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
+    <Container fluid className="justify-content-center acc-reg-container">
+      <Row className="justify-content-center mb-2">
+        <h4>THÔNG TIN NGƯỜI DÙNG</h4>
       </Row>
 
-      <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Label>Address 2</Form.Label>
-        <Form.Control placeholder="Apartment, studio, or floor" />
-      </Form.Group>
-
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridCity">
-          <Form.Label>City</Form.Label>
-          <Form.Control />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>State</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-          </Form.Select>
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridZip">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control />
-        </Form.Group>
+      <Row className="flex-column">
+        <div>Số căn cước công dân</div>
+        <Input
+          className="acc-reg-field"
+          onChange={(e) => optionChange(e.target.value, "id_card_number")}
+          value={formData.id_card_number}
+        />
       </Row>
 
-      <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      <Row className="flex-column">
+        <div>username</div>
+        <Input
+          className="acc-reg-field"
+          onChange={(e) => optionChange(e.target.value, "user_name")}
+          value={formData.username}
+        />
+      </Row>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <Row className="flex-column">
+        <div>Họ và tên</div>
+        <Input
+          className="acc-reg-field"
+          onChange={(e) => optionChange(e.target.value, "fullname")}
+          value={formData.fullname}
+        />
+      </Row>
+
+      <DatePickerSingle
+        pickerName={"Ngày sinh"}
+        fieldName={"dob"}
+        optionChange={optionChange}
+      />
+
+      <Row className="flex-column">
+        <div>Địa chỉ</div>
+        <Input
+          className="acc-reg-field"
+          onChange={(e) => optionChange(e.target.value, "address")}
+          value={formData.address}
+        />
+      </Row>
+
+      <Row className="flex-column">
+        <div>Số điện thoại</div>
+        <Input
+          className="acc-reg-field"
+          onChange={(e) => optionChange(e.target.value, "phone")}
+          value={formData.phone}
+        />
+      </Row>
+
+      <Row className="justify-content-center mt-3">
+        <Button className="btn-zlp-color" onClick={handleSubmit}>
+          ĐĂNG KÝ
+        </Button>
+      </Row>
     </Container>
   );
 }
-
-export default UserRegistrationForm;

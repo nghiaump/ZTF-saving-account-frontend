@@ -10,19 +10,20 @@ export default function AccountRegistrationResult({ data }) {
       <Row className="justify-content-center mt-3 mb-3 acc-reg-success-label">
         Tạo mới tài khoản thành công
       </Row>
+
       <Row>
-        <Col>ID tài khoản</Col>
-        <Col>{data?.account_id}</Col>
+        <Col className="font-weight-bold">ID khách hàng</Col>
+        <Col className="font-weight-bold">{data?.user_id}</Col>
       </Row>
 
       <Row>
-        <Col>ID khách hàng</Col>
-        <Col>{data?.user_id}</Col>
+        <Col className="font-weight-bold">ID tài khoản</Col>
+        <Col className="font-weight-bold">{data?.account_id}</Col>
       </Row>
 
       <Row>
         <Col>Tiền gốc</Col>
-        <Col>{data?.balance}</Col>
+        <Col>{numberWithCommas(data?.balance)}</Col>
       </Row>
 
       <Row>
@@ -42,7 +43,7 @@ export default function AccountRegistrationResult({ data }) {
 
       <Row>
         <Col>Tiền lãi dự kiến</Col>
-        <Col>{data?.expected_interest}</Col>
+        <Col>{numberWithCommas(data?.expected_interest)}</Col>
       </Row>
     </Container>
   );

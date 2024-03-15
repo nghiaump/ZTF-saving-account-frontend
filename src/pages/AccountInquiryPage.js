@@ -10,6 +10,7 @@ export default function AccountInquiryPage() {
   useEffect(() => {
     console.log(">>dispatched response:", dataState.response);
   }, [dataState.response]);
+  
   const submitHandler = () => {
     const payload = {
       ...dataState.form_data,
