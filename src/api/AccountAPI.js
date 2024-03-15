@@ -1,6 +1,6 @@
 const AccountAPI = {
   registerUser: async (reg_info) => {
-    const url = "/api/users/register";
+    const url = `${process.env.REACT_APP_DOMAIN_SERVER}/api/users/register`;
     return await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -11,7 +11,7 @@ const AccountAPI = {
   },
 
   searchAccounts: async (filter) => {
-    const url = "/api/accounts/search";
+    const url = `${process.env.REACT_APP_DOMAIN_SERVER}/api/accounts/search`;
     return await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const AccountAPI = {
   },
 
   registerAccount: async (reg_info) => {
-    const url = "/api/accounts/register";
+    const url = `${process.env.REACT_APP_DOMAIN_SERVER}/api/accounts/register`;
     return await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const AccountAPI = {
   },
 
   inquiryAccount: async (form_data) => {
-    const url = "/api/accounts/inquiry";
+    const url = `${process.env.REACT_APP_DOMAIN_SERVER}/api/accounts/inquiry`;
     return await fetch(url, {
       headers: {
         "Content-Type": "application/json",
