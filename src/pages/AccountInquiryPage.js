@@ -10,10 +10,11 @@ export default function AccountInquiryPage() {
   useEffect(() => {
     console.log(">>dispatched response:", dataState.response);
   }, [dataState.response]);
-  
+
   const submitHandler = () => {
     const payload = {
-      ...dataState.form_data,
+      user_id: dataState.form_data.user_id.trim(),
+      account_id: dataState.form_data.account_id.trim(),
     };
 
     console.log(">>payload accreg:", payload);
